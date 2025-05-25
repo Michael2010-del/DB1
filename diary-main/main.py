@@ -37,7 +37,7 @@ class Card(db.Model):
 @app.route('/')
 def index():
     #Отображение объектов из БД
-    #Задание №2. Отоброзить объекты из БД в index.html
+    
     cards = Card.query.order_by(Card.id).all()
 
     
@@ -50,7 +50,7 @@ def index():
 #Запуск страницы c картой
 @app.route('/card/<int:id>')
 def card(id):
-    #Задание №2. Отоброзить нужную карточку по id
+    
 
     card = Card.query.get(id)
     
@@ -71,7 +71,7 @@ def form_create():
         subtitle =  request.form['subtitle']
         text =  request.form['text']
 
-        #Задание №2. Создайте сопосб записи данных в БД
+        
         card = Card(title=title, subtitle=subtitle, text=text)
         db.session.add(card)
         db.session.commit()
